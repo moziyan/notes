@@ -1,10 +1,12 @@
 import {defineConfig} from "vuepress/config";
 import nav from "./config/nav";
 import sidebar from "./config/sidebar";
+import locales from "./config/locales";
 
 export default defineConfig({
     title: "我的笔记本",
     description: "记下想记住的，以及不得不记住的☺",
+    locales,
     themeConfig: {
         repo: 'moziyan/notes',
         lastUpdated: true,
