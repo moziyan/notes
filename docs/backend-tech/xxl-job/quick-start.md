@@ -1,3 +1,5 @@
+# 快速开始
+
 ## 初始化调度中心数据库
 
 [官方初始化sql](https://github.com/xuxueli/xxl-job/blob/master/doc/db/tables_xxl_job.sql)
@@ -311,4 +313,4 @@ public class DemoJobHandler {
 
 ![add-task.png](./images/add-task.png)
 
-<Vssue />
+<Vssue></Vssue>
