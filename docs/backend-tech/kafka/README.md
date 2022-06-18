@@ -2,5 +2,5 @@
 
 这里记录Kafka
 
-<Vssue :title="Kafka简介"></Vssue>
+<Vssue title="Kafka简介"></Vssue>
 
