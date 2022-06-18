@@ -10,6 +10,15 @@ const sidebar: SidebarConfig4Multiple = {
                 ["quick-start", "快速开始"]
             ]
         }
+    ],
+    "/backend-tech/kafka/": [
+        {
+            title: "Kafka",
+            collapsable: false,
+            children: [
+                ["", "简介"]
+            ]
+        }
     ]
 }
 
