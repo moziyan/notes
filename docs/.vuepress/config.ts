@@ -19,7 +19,7 @@ export default defineConfig({
         ['@vssue/vuepress-plugin-vssue', {
             platform: 'github-v4',
             owner: 'moziyan',
-            repo: 'notes    ',
+            repo: 'notes',
             clientId: 'ddba392e9df0bb9a62f9',
             clientSecret: '49a803c42f78d744b110e66f6314f24c135630ba'
         }]
