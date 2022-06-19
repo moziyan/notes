@@ -2,6 +2,8 @@ import {defineConfig} from "vuepress/config";
 import nav from "./config/nav";
 import sidebar from "./config/sidebar";
 import locales from "./config/locales";
+// @ts-ignore
+import dayjs from "dayjs";
 
 export default defineConfig({
     title: "我的笔记本",
@@ -9,13 +11,20 @@ export default defineConfig({
     locales,
     themeConfig: {
         repo: 'moziyan/notes',
-        lastUpdated: true,
+        lastUpdated: '最后更新时间',
         nav,
         sidebar
     },
     plugins: [
         ['@vuepress/back-to-top'],
         ['@vuepress/medium-zoom'],
+        ['@vuepress/last-updated', {
+            transformer: (timestamp, lang) => {
+                dayjs.locale(lang);
+                return dayjs(timestamp).format('YYYY-MM-DD HH:mm:ss');
+            }
+        }
+        ],
         ['@vssue/vuepress-plugin-vssue', {
             platform: 'github-v4',
             owner: 'moziyan',
