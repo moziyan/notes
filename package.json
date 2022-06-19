@@ -18,6 +18,6 @@
   "dependencies": {
     "@vssue/api-github-v4": "^1.4.7",
     "@vssue/vuepress-plugin-vssue": "^1.4.8",
-    "dayjs": "^1.11.3"
+    "moment": "^2.29.3"
   }
 }

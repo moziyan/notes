@@ -3,7 +3,7 @@ import nav from "./config/nav";
 import sidebar from "./config/sidebar";
 import locales from "./config/locales";
 // @ts-ignore
-import dayjs from "dayjs";
+import moment from "moment";
 
 export default defineConfig({
     title: "我的笔记本",
@@ -20,8 +20,8 @@ export default defineConfig({
         ['@vuepress/medium-zoom'],
         ['@vuepress/last-updated', {
             transformer: (timestamp, lang) => {
-                dayjs.locale(lang);
-                return dayjs(timestamp).format('YYYY-MM-DD HH:mm:ss');
+                moment.locale(lang);
+                return moment(timestamp).format('YYYY-MM-DD HH:mm:ss');
             }
         }],
         ['@vssue/vuepress-plugin-vssue', {
