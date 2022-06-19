@@ -358,12 +358,12 @@ StringBuilder并没有对方法进行同步锁，所以是非线程安全的。
 Array获取数据的时间复杂度是O(1)，但是要删除数据却是开销很大，因为这需要重排数组中的所有数据，
 因为删除数据以后，需要把后面所有的数据前移
 
-**缺点：**数组初始化必须指定初始化的长度，否则报错
+**缺点：** 数组初始化必须指定初始化的长度，否则报错
 
 例如：
 
 ```java
-int[] a = new int[4]; // 推荐使用int[]这种歌方式初始化
+int[] a = new int[4]; // 推荐使用int[]这种方式初始化
 int c[] = {23, 43, 56, 78}; // 长度：4，索引范围：[0, 3]
 ```
 
@@ -381,7 +381,47 @@ int c[] = {23, 43, 56, 78}; // 长度：4，索引范围：[0, 3]
 **LinkedList：**
 
 - 是一个双向链表
-- 再添加和删除元素时具有比ArrayList更好的性能
+- 在添加和删除元素时具有比ArrayList更好的性能
 - 在get和set方面弱于ArrayList
 
-性能差异都是数据量很大或操作频繁的情况下比较明显
+## HashMap和Hashtable的区别
+
+1. 两者父类不同
+
+   HashMap是继承自AbstractMap类，而Hashtable是继承自Dictionary类。不过他们都实现了Map、
+   Cloneable、Serializable这三个接口。
+2. 对外提供的接口不同
+
+   Hashtable比HashMap多提供了elements()和contains()两个方法。elements()方法继承自
+   Hashtable的父类Dictionary。elements()方法用于返回此Hashtable中的value的枚举。
+
+   contains()方法判断该Hashtable是否包含传入的value。它的作用与containsValue()一致。
+   事实上，containsValue()就只是调用了一下contains()方法。
+3. 对null的支持不同
+
+   Hashtable：key和value都不能为null。
+
+   HashMap：key可以为null，但是这样的key只能有一个，因为必须保证key的唯一性；可以有多个
+   key值对应的value为null
+4. 安全性不同
+
+   HashMap是线程不安全的，在多线程并发的环境下，可能会产生死锁等问题，因此需要开发人员自己
+   处理多线程的安全问题。
+
+   Hashtable是线程安全的，它的每个方法上都有`synchronized`关键字，因此可直接用于多线程中。
+
+   虽然HashMap是县城不安全的，但是它的效率远远高于Hashtable，这样设计是合理的，因为大部分
+   的使用场景都是单线程。当需要多线程操作的时候可以使用线程安全的ConcurrentHashMap。
+
+   ConcurrentHashMap虽然也是县城安全的，但是它的效率比Hashtable要高好多倍，因为ConcurrentHashMap
+   缩小了锁的范围，并不对整个数据进行锁定。
+5. 初始容量大小和每次扩容量大小不同
+6. 计算Hash值的方法不同
+
+## Collection包结构，与Collections的区别
+
+Collection是集合类的上级接口，子接口有Set、List、LinkedList、ArrayList、Vector、Stack、Set。
+
+Collections是集合类的一个帮助类，它包含有各种有关集合操作的静态方法，用于实现对各种集合的搜索、
+排序、线程安全化等操作。此类不能实例化，就像一个工具类，服务于Java的Collection框架。
+
