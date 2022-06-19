@@ -23,8 +23,7 @@ export default defineConfig({
                 dayjs.locale(lang);
                 return dayjs(timestamp).format('YYYY-MM-DD HH:mm:ss');
             }
-        }
-        ],
+        }],
         ['@vssue/vuepress-plugin-vssue', {
             platform: 'github-v4',
             owner: 'moziyan',
