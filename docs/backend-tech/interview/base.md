@@ -70,3 +70,26 @@ sidebar: auto
 - 变量名规范：首字母小写，后面每个单词首字母大写（小驼峰式）。
 - 方法名规范：同变量名
 
+## instanceof关键字作用
+
+instanceof严格来所是Java中的一个双目运算符，用来测试一个对象是否为一个类的实例，用法为：
+
+```java
+boolean result = obj instanceof Class
+```
+
+其中obj为一个对象，Class表示一个类或一个接口，当obj为Class的对象，或者是其直接或间接子类，
+或者是其接口的实现类，结果result都返回true，否则为false。
+
+注意：编译器会检查obj是否能转换成右边的class类型，如果不能转换则直接报错，如果不能确定类型，
+则通过编译，具体看运行时定。
+
+```java
+int i = 0;
+System.out.println(i instanceof Integer); //编译不通过，i必须是引用类型，不能是基本类型
+System.out.println(i instanceof Object); //编译不通过
+Integer integer = new Integer(1);
+System.out.println(integer instanceof Integer); //true
+//在JavaSE规范中对instanceof运算符的规定就是：如果obj为null，那么将返回false
+System.out.println(null instanceof Object); //false
+```
