@@ -359,7 +359,7 @@ int c[] = {23, 43, 56, 78}; // 长度：4，索引范围：[0, 3]
 
    虽然HashMap是县城不安全的，但是它的效率远远高于Hashtable，这样设计是合理的，因为大部分的使用场景都是单线程。当需要多线程操作的时候可以使用线程安全的ConcurrentHashMap。
 
-   ConcurrentHashMap虽然也是县城安全的，但是它的效率比Hashtable要高好多倍，因为ConcurrentHashMap缩小了锁的范围，并不对整个数据进行锁定。
+   ConcurrentHashMap虽然也是线程安全的，但是它的效率比Hashtable要高好多倍，因为ConcurrentHashMap缩小了锁的范围，并不对整个数据进行锁定。
 5. 初始容量大小和每次扩容量大小不同
 6. 计算Hash值的方法不同
 
