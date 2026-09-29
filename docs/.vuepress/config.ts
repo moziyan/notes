@@ -6,6 +6,7 @@ import locales from "./config/locales";
 import moment from "moment";
 
 export default defineConfig({
+    base: "/notes/"
     title: "我的笔记本",
     description: "记下想记住的，以及不得不记住的☺",
     locales,
